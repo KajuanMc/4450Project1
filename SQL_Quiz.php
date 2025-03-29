@@ -8,7 +8,7 @@ $firstname=$_SESSION["firstname"];
 <html>
 <!--Save under Project -->
     <head>
-        <title>PHP Quiz</title>
+        <title>SQL Quiz</title>
         <style>.error{color:#FF0000;}</style>
     </head>
     <body>
@@ -32,7 +32,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	}
 	else{
 		$Q1=test_input($_POST["Q1"]);
-		if($Q1=="B"){
+		if($Q1=="A"){
 			$Q1Msg = "Good job!";
 			$quizScore++;
 		} else {
@@ -62,7 +62,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	}
 	else{
 		$Q3=test_input($_POST["Q3"]);
-		if($Q3=="C"){
+		if($Q3=="B"){
 			$Q3Msg = "Good job!";
 			$quizScore++;
 		} else {
@@ -90,7 +90,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 	}
 	else{
 		$Q5=test_input($_POST["Q5"]);
-		if($Q5=="A"){
+		if($Q5=="B"){
 			$Q5Msg = "Good job!";
 			$quizScore++;
 		} else {
@@ -104,7 +104,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $returnValue = mysqli_query($dbc, $sqs);
         echo "The returned value is ".$returnValue."<br>";
         if($returnValue ==1){
-            $msg= "Thank you for completing the PHP quiz.";
+            $msg= "Thank you for completing the SQL quiz.";
         }
         else{
             $msg="We have trouble saving your result.";
@@ -115,37 +115,36 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 }
 $_SESSION["random"]="This is a random message";
         ?>
-        <h1>PHP Questions</h1>
-        <h3>This test will help you evaluate your PHP skills.</h3>
+        <h1>SQL Questions</h1>
+        <h3>This test will help you evaluate your SQL skills.</h3>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-1. What does PHP stands for ? <span class="error"> * <?php echo $Q1Msg; ?> </span> <br>
-<input type="radio" name="Q1" <?php if(isset($Q1)&&$Q1=="A") echo "checked" ; ?> value="A" > Private Home page
-<input type="radio" name="Q1" <?php if(isset($Q1)&&$Q1=="B") echo "checked" ; ?> value="B" > Personal Hypertext Processor
-<input type="radio" name="Q1" <?php if(isset($Q1)&&$Q1=="C") echo "checked" ; ?> value="C" > PHP Hypertext Processor
+1. What does SQL stand for ? <span class="error"> * <?php echo $Q1Msg; ?> </span> <br>
+<input type="radio" name="Q1" <?php if(isset($Q1)&&$Q1=="A") echo "checked" ; ?> value="A" > Structured Query Language
+<input type="radio" name="Q1" <?php if(isset($Q1)&&$Q1=="B") echo "checked" ; ?> value="B" > Structured Question Language
+<input type="radio" name="Q1" <?php if(isset($Q1)&&$Q1=="C") echo "checked" ; ?> value="C" > Strong Question Language
 <br> <br>
  
-2. How would you write "Hello Word" in PHP? <span class="error"> * <?php echo $Q2Msg; ?> </span> <br>
-<input type="radio" name="Q2" <?php if(isset($Q2)&&$Q2=="A") echo "checked" ; ?> value="A" > echo "Hello World";
-<input type="radio" name="Q2" <?php if(isset($Q2)&&$Q2=="B") echo "checked" ; ?> value="B" > print "Hello Word";
-<input type="radio" name="Q2" <?php if(isset($Q2)&&$Q2=="C") echo "checked" ; ?> value="C" > Document.Write("Hello World");
+2. Which SQL statement is used to extract data from a database? <span class="error"> * <?php echo $Q2Msg; ?> </span> <br>
+<input type="radio" name="Q2" <?php if(isset($Q2)&&$Q2=="A") echo "checked" ; ?> value="A" > SELECT
+<input type="radio" name="Q2" <?php if(isset($Q2)&&$Q2=="B") echo "checked" ; ?> value="B" > EXTRACT
+<input type="radio" name="Q2" <?php if(isset($Q2)&&$Q2=="C") echo "checked" ; ?> value="C" > OPEN
 <br> <br>
  
-3. PHP Syntax is most similar to :<span class="error"> * <?php echo $Q3Msg; ?> </span> <br>
-<input type="radio" name="Q3" <?php if(isset($Q3)&&$Q3=="A") echo "checked" ; ?> value="A" > C#
-<input type="radio" name="Q3" <?php if(isset($Q3)&&$Q3=="B") echo "checked" ; ?> value="B" > Java
-<input type="radio" name="Q3" <?php if(isset($Q3)&&$Q3=="C") echo "checked" ; ?> value="C" > JavaScript
+3. Which  SQL statement is used to remove data from a database?<span class="error"> * <?php echo $Q3Msg; ?> </span> <br>
+<input type="radio" name="Q3" <?php if(isset($Q3)&&$Q3=="A") echo "checked" ; ?> value="A" > REMOVE
+<input type="radio" name="Q3" <?php if(isset($Q3)&&$Q3=="B") echo "checked" ; ?> value="B" > DELETE
+<input type="radio" name="Q3" <?php if(isset($Q3)&&$Q3=="C") echo "checked" ; ?> value="C" > COLLAPSE
 <br> <br>
  
-4. When using POST method in PHP, variable are displayed in the URL <span class="error"> * <?php echo $Q4Msg; ?> </span> <br>
+4. The OR operator displays records if ANY conditions are true. AND displays a record if ALL conditions are true. <span class="error"> * <?php echo $Q4Msg; ?> </span> <br>
 <input type="radio" name="Q4" <?php if(isset($Q4)&&$Q4=="T") echo "checked" ; ?> value="T" > True
 <input type="radio" name="Q4" <?php if(isset($Q4)&&$Q4=="F") echo "checked" ; ?> value="F" > False
 <br> <br>
  
-5. What is the correct way to end a php statement <span class="error"> * <?php echo $Q5Msg; ?> </span> <br>
-<input type="radio" name="Q5" <?php if(isset($Q5)&&$Q5=="A") echo "checked" ; ?> value="A" > ;
-<input type="radio" name="Q5" <?php if(isset($Q5)&&$Q5=="B") echo "checked" ; ?> value="B" > .
-<input type="radio" name="Q5" <?php if(isset($Q5)&&$Q5=="C") echo "checked" ; ?> value="C" > ,
-<input type="radio" name="Q5" <?php if(isset($Q5)&&$Q5=="D") echo "checked" ; ?> value="D" > php
+5. Which SQL statement is uSed to return only different values? <span class="error"> * <?php echo $Q5Msg; ?> </span> <br>
+<input type="radio" name="Q5" <?php if(isset($Q5)&&$Q5=="A") echo "checked" ; ?> value="A" > SELECT DIFFERENT
+<input type="radio" name="Q5" <?php if(isset($Q5)&&$Q5=="B") echo "checked" ; ?> value="B" > SELECT DISTINCT
+<input type="radio" name="Q5" <?php if(isset($Q5)&&$Q5=="C") echo "checked" ; ?> value="C" > SELECT UNIQUE
 <br> <br>
  
 <input type="Submit">

@@ -4,7 +4,7 @@
     </head>
     <body>
         <h3 align="center">
-            <a>Home</a>
+            <a href ="admin_nav.php">Home</a>
             |
             <a href="admin_manage.php">Manage Users</a>
             |

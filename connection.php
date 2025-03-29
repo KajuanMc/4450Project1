@@ -5,5 +5,5 @@ $password="";
 $dbname="4450project1";
 
 $dbc=mysqli_connect($hostname,$username,$password,$dbname) OR die("Cannot connect to database, error...");
-echo "Connected to the database ".$dbname." successfully!<br>";
+//echo "Connected to the database ".$dbname." successfully!<br>";
 ?>
